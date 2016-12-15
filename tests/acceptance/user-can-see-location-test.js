@@ -4,10 +4,10 @@ import moduleForAcceptance from 'cdg-frontend/tests/helpers/module-for-acceptanc
 moduleForAcceptance('Acceptance | user can see location');
 
 test('visiting /user-can-see-location', function(assert) {
-  visit('/locations/manchester');
+  visit('/locations/sheffield');
 
   andThen(function() {
-    assert.equal(currentURL(), '/locations/manchester');
-    assert.equal(find('h1').text(), 'Manchester');
+    assert.equal(currentURL(), '/locations/sheffield');
+    assert.equal(find('h1').text(), 'Sheffield');
   });
 });

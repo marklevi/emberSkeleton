@@ -1,8 +1,7 @@
 import Ember from "ember";
 
 export default Ember.Route.extend({
-    model() {
-        return {title: "Manchester"};
+    model(params) {
+        return this.store.findRecord('location', params.location_id);
     }
-
 });
