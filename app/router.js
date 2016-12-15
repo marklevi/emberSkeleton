@@ -7,8 +7,8 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('locations', {
-    path: '/locations/:location_id'
+  this.route('locations', function() {
+    this.route('location', {path: ':location_id'});
   });
 });
 
