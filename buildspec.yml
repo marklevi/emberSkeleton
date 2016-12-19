@@ -7,7 +7,7 @@ phases:
   build:
     commands:
       - echo running tests...
-      - ./node_modules/.bin/bower install
+      - ./node_modules/.bin/bower --allow-root install
       - npm run test
       - npm run build
   post_build:
