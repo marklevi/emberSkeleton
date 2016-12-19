@@ -8,8 +8,5 @@ else
   DEPLOY_ENV=$1
 fi
 
-npm install
-./node_modules/.bin/bower install
-npm run test
 ./node_modules/.bin/gulp publish --env $DEPLOY_ENV
 

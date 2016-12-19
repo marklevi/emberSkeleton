@@ -1,0 +1,16 @@
+version: 0.1
+
+phases:
+  pre_build:
+    commands:
+      - npm install
+  build:
+    commands:
+      - echo running tests...
+      - ./node_modules/.bin/bower install
+      - npm run test
+      - npm run build
+  post_build:
+    commands:
+      - echo deploying las iguanas assets to s3
+      - ./scripts/deploy.sh dev
