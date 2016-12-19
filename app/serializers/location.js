@@ -4,12 +4,12 @@ import _ from 'npm:underscore';
 export default JSONAPISerializer.extend({
     normalizeFindRecordResponse(store, primaryModelClass, payload) {
 
-        _.each(payload.items[0].fields, function (field, fieldName) {
+        _.each(payload.items[0].fields, function (field) {
             if (field.hasOwnProperty('sys') && field.sys.linkType === "Asset") {
                 let matchingAsset = _.find(payload.includes["Asset"], function (asset) {
                     return asset.sys.id === field.sys.id;
                 });
-                payload.items[0].fields[fieldName]["assetUrl"] = matchingAsset.fields.file.url;
+                payload.items[0].fields["heroImageUrl"] = matchingAsset.fields.file.url;
             }
         });
 
