@@ -9,9 +9,15 @@ test('it serializes records', function (assert) {
     let normalizedResponse = record.store.serializerFor('location')
         .normalizeFindRecordResponse({},
             {modelName: "location"},
-            {items: [{fields: [{slug: "manchester"}]}]},
+            {items: [{fields: {slug: "manchester"}}]},
             "manchester", "RecordType");
-    
+
     assert.equal(normalizedResponse.data.type,
         'location');
+
+    assert.equal(normalizedResponse.data.id,
+        'manchester');
+
+    assert.deepEqual(normalizedResponse.data.attributes,
+        {slug: "manchester"});
 });
