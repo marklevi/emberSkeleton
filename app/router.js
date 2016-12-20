@@ -7,10 +7,7 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function () {
-    this.route('locations', function () {
-        this.route('location', {path: ':location_id'});
-    });
-
+    this.route('location', {path: '/locations/:location_id'});
     this.route('404', {path: '*path'});
 });
 

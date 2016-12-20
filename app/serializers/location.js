@@ -1,8 +1,12 @@
-import JSONAPISerializer from "ember-data/serializers/json-api";
-import _ from 'npm:underscore';
+import _ from "npm:underscore";
+import DS from "ember-data";
+import NotFoundError from "../errors/not-found-error";
 
-export default JSONAPISerializer.extend({
+export default DS.JSONAPISerializer.extend({
     normalizeFindRecordResponse(store, primaryModelClass, payload) {
+        if(payload.items.length === 0) {
+            throw new NotFoundError();
+        }
 
         _.each(payload.items[0].fields, function (field) {
             if (field.hasOwnProperty('sys') && field.sys.linkType === "Asset") {
