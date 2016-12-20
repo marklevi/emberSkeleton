@@ -1,4 +1,7 @@
 <h1>{{model.title}}</h1>
 <p class="location__description">{{model.description}}</p>
 <img class="location__hero-image" src="{{model.heroImageUrl}}">
-  {{g-maps markers=markers lat=model.addressLocation.lat lng=model.addressLocation.lon zoom=14}}
+  {{g-maps markers=markers lat=model.addressLocation.lat lng=model.addressLocation.lon zoom=17
+           draggable=false showZoomControl=false scrollwheel=false
+           showMapTypeControl=false disableDefaultUI=true clickableIcons=false
+           disableDoubleClickZoom=true}}
