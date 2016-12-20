@@ -6,6 +6,19 @@ export default Ember.Route.extend({
         return this.store.findRecord('location', params.location_id);
 
     },
+
+    setupController (controller, model) {
+      controller.setProperties({
+        markers: Ember.A([
+          {
+            lat: model.get('addressLocation').lat,
+            lng: model.get('addressLocation').lon
+          }
+        ])
+      });
+      this._super(controller, model);
+    },
+
     actions: {
         error(err) {
             if (err instanceof NotFoundError) {
