@@ -1,11 +1,8 @@
-h1 {
-  color: red;
-}
+@import "normalize";
+@import "grid";
+@import "fonts";
 
 .ember-cli-g-map {
   height: 400px;
 }
 
-p {
-  white-space: pre-wrap;
-}
