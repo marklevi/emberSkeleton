@@ -4,4 +4,7 @@
 @import "fonts";
 @import "location-page";
 
-
+body {
+  background-color: $skeptic;
+  color: $fontColour !important;
+}

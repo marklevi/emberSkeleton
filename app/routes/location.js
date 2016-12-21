@@ -12,7 +12,8 @@ export default Ember.Route.extend({
         markers: Ember.A([
           {
             lat: model.get('addressLocation').lat,
-            lng: model.get('addressLocation').lon
+            lng: model.get('addressLocation').lon,
+            icon: '/icons/map-marker-icon.svg',
           }
         ])
       });

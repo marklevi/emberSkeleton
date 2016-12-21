@@ -1,7 +1,8 @@
 .location__hero {
   background-size: auto 100%;
-  background: $accentColor2 center;
-  height: 150px;
+  background-color: $accentColor2;
+  background-position: center;
+  height: 200px;
   position: relative;
 
   @media #{$medium-up} {
@@ -11,9 +12,9 @@
   .location__hero-overlay {
     background-image: url('/images/blue-lagoon-box-background.svg');
     background-size: cover;
-    bottom: -1.5rem;
+    bottom: -2.375rem;
     left: 5%;
-    padding: 0.5rem;
+    padding: 0.5rem 2rem;
     position: absolute;
     text-align: center;
     width:90%;
@@ -21,6 +22,7 @@
 
     h1 {
       color: $ecruWhite;
+      font-size: 2.5em;
       margin: 0;
     }
 
@@ -32,9 +34,42 @@
 }
 
 .location__map {
-  height: 150px;
+  height: 200px;
 
   @media #{$medium-up} {
     height: 300px;
+  }
+}
+
+.location-information {
+  background-color: $textBackground;
+
+  .location__address-information {
+    font-weight: bold;
+    padding-top: 2rem;
+    position: relative;
+
+    @media #{$medium-up} {
+      padding-top: 3rem;
+    }
+
+    .location__get-directions {
+      background-color: $keppel;
+      color: $fontOnDark;
+      display: inline-block;
+      padding: 0.5rem 3rem;
+      position: absolute;
+      text-align: center;
+      top: -1.625rem;
+      width: 100%;
+
+      @media #{$medium-up} {
+        width: initial;
+      }
+
+      h2 {
+        margin: 0;
+      }
+    }
   }
 }

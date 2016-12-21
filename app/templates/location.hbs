@@ -5,12 +5,28 @@
                 <h1>{{model.title}}</h1>
             </div>
         </div>
-        {{g-maps class="location__map" markers=markers lat=model.addressLocation.lat lng=model.addressLocation.lon zoom=17
-        draggable=false showZoomControl=false scrollwheel=false
-        showMapTypeControl=false disableDefaultUI=true clickableIcons=false
-        disableDoubleClickZoom=true}}
+    </div>
+</div>
+<div class="row collapse">
+    <div class="small-12 column">
+        {{g-maps class="location__map" markers=markers lat=model.addressLocation.lat lng=model.addressLocation.lon
+                 zoom=16
+                 draggable=false showZoomControl=true scrollwheel=false
+                 showMapTypeControl=false disableDefaultUI=true clickableIcons=false
+                 disableDoubleClickZoom=true}}
+    </div>
+</div>
+<div class="row location-information">
+    <div class="small-12 medium-5 medium-push-7 large-4 large-push-8 column">
+        <div class="location__address-information">
+            <a class="location__get-directions"><h2>Get directions</h2></a>
+            <p class="location__address-text">{{{model.addressText}}}</p>
+        </div>
+    </div>
+    <div class="small-12 medium-7 medium-pull-5 large-8 large-pull-4 column">
+        <h2>About {{model.title}}</h2>
         <p class="location__description">{{model.description}}</p>
+        <h3>Opening hours</h3>
         <p class="location__opening-hours">{{{model.openingHours}}}</p>
-        <p class="location__address-text">{{{model.addressText}}}</p>
     </div>
 </div>

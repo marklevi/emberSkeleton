@@ -8,7 +8,7 @@ test('visiting valid url displays location info', function (assert) {
 
     andThen(function () {
         assert.equal(currentURL(), '/locations/sheffield');
-        assert.equal(find('.location__hero').attr('style'), 'background-image: url(\'//images.contentful.com/nibrxe5ozouo/3F6Omuv9e0yc8IQSeGCEMK/128ff2e6e336fc8d95b3a4cce5785430/20160727-_JMC7377.jpg\')');
+        assert.equal(find('.location__hero').attr('style'), 'background-image: url(\'//images.contentful.com/nibrxe5ozouo/3F6Omuv9e0yc8IQSeGCEMK/ab2ac32b58d90b15fbc0f0c4920db35c/20160727-_JMC7377.jpg\')');
         assert.equal(find('h1').text(), 'Sheffield');
         assert.equal(find('.location__description').text(), 'The best drinks in the UK');
         assert.equal(find('.location__opening-hours').text(), 'Monday to Friday 10am - 10pm\nSaturday 10am - 12pm\nSunday 12am - 9pm');
