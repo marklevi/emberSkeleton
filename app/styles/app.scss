@@ -8,3 +8,12 @@ body {
   background-color: $skeptic;
   color: $fontColour !important;
 }
+
+.nav-bar-container {
+  background-color: $amaranth;
+  padding: 1rem;
+
+  img {
+    max-height: 50px;
+  }
+}
