@@ -1,0 +1,40 @@
+.location__hero {
+  background-size: auto 100%;
+  background: $accentColor2 center;
+  height: 150px;
+  position: relative;
+
+  @media #{$medium-up} {
+    height: 300px;
+  }
+
+  .location__hero-overlay {
+    background-image: url('/images/blue-lagoon-box-background.svg');
+    background-size: cover;
+    bottom: -1.5rem;
+    left: 5%;
+    padding: 0.5rem;
+    position: absolute;
+    text-align: center;
+    width:90%;
+    z-index: 999;
+
+    h1 {
+      color: $ecruWhite;
+      margin: 0;
+    }
+
+    @media #{$medium-up} {
+      min-width: 250px;
+      width: initial;
+    }
+  }
+}
+
+.location__map {
+  height: 150px;
+
+  @media #{$medium-up} {
+    height: 300px;
+  }
+}
