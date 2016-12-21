@@ -1,3 +1,7 @@
 .ember-cli-g-map {
   height: 400px;
 }
+
+p {
+  white-space: pre-wrap;
+}
