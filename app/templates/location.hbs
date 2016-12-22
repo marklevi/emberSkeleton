@@ -26,7 +26,7 @@
 <div class="row location-information">
     <div class="small-12 medium-5 medium-push-7 large-4 large-push-8 column">
         <div class="location__address-information">
-            <a class="location__get-directions"><h2>Get directions</h2></a>
+            {{link model.addressLocation.lat model.addressLocation.lon}}
             <p class="location__address-text">{{{model.addressText}}}</p>
         </div>
     </div>
