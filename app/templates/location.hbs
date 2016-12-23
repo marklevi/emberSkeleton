@@ -23,7 +23,7 @@
                  disableDoubleClickZoom=true}}
     </div>
 </div>
-<div class="row location-information">
+<div class="row location__section location__section--information">
     <div class="small-12 medium-5 medium-push-7 large-4 large-push-8 column">
         <div class="location__address-information">
             {{link model.addressLocation.lat model.addressLocation.lon}}
@@ -35,5 +35,14 @@
         <p class="location__description">{{model.description}}</p>
         <h3>Opening hours</h3>
         <p class="location__opening-hours">{{{model.openingHours}}}</p>
+    </div>
+</div>
+<div class="row location__section location__section--menu-title">
+    <div class="large-10 medium-10 column"><div class="location__section--menu-title__text">Menus</div></div>
+    <div class="large-2 medium-2 column">
+        <div class="deliveroo__link">
+            <img class="deliveroo__link--img" src="/images/white-deliveroo.png">
+            <a class="deliveroo__link--cta" href={{model.deliverooUrl}}>Order now</a>
+        </div>
     </div>
 </div>

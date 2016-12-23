@@ -6,5 +6,6 @@ export default DS.Model.extend({
     heroImageUrl: DS.attr('url'),
     addressLocation: DS.attr(),
     addressText: DS.attr('string'),
-    openingHours: DS.attr('string')
+    openingHours: DS.attr('string'),
+    deliverooUrl: DS.attr('string')
 });

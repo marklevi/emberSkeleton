@@ -41,36 +41,66 @@
   }
 }
 
-.location-information {
-  background-color: $textBackground;
+.location {
 
-  .location__address-information {
-    font-weight: bold;
-    padding-top: 2rem;
-    position: relative;
+  &__section {
+    background-color: $textBackground;
 
-    @media #{$medium-up} {
-      padding-top: 3rem;
+    &--information {
+      .location__address-information {
+        font-weight: bold;
+        padding-top: 2rem;
+        position: relative;
+
+        @media #{$medium-up} {
+          padding-top: 3rem;
+        }
+
+        .location__get-directions {
+          background-color: $keppel;
+          color: $fontOnDark;
+          display: inline-block;
+          padding: 0.5rem 3rem;
+          position: absolute;
+          text-align: center;
+          top: -1.625rem;
+          width: 100%;
+          text-decoration: none;
+
+          @media #{$medium-up} {
+            width: initial;
+          }
+
+          h2 {
+            margin: 0;
+          }
+        }
+      }
     }
 
-    .location__get-directions {
-      background-color: $keppel;
-      color: $fontOnDark;
-      display: inline-block;
-      padding: 0.5rem 3rem;
-      position: absolute;
-      text-align: center;
-      top: -1.625rem;
-      width: 100%;
-      text-decoration: none;
+    &--menu-title {
+      .deliveroo__link {
+        text-align: center;
+        &--cta {
+          display: block;
+          color: #38B5AA;
+          font-size: 1.4rem;
+          font-family: "Veneer", sans-serif;
+          font-weight: 300;
+          margin-top: 10px;
+        }
 
-      @media #{$medium-up} {
-        width: initial;
+        &--img {
+          width:100px;
+        }
       }
-
-      h2 {
-        margin: 0;
+      &__text {
+        line-height: 137px;
+        font-size: 3rem;
+        font-family: "Veneer", sans-serif;
+        position: relative;
       }
     }
   }
+
 }
