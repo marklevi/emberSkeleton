@@ -7,7 +7,7 @@ export function link(addressLocation) {
   let lat = addressLocation[0] + "";
   let long = addressLocation[1] + "";
   return new Handlebars.SafeString(
-    "<a class='location__get-directions' href='" + baseUrl+ lat+ ','+ long+"'>"+'<h2>' + text + '</h2>'+"</a>"
+    "<a class='location__get-directions' target='newwindow' href='" + baseUrl+ lat+ ','+ long+"'>"+'<h2>' + text + '</h2>'+"</a>"
   );
 }
 
