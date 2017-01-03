@@ -2,13 +2,15 @@ import _ from "npm:underscore";
 import DS from "ember-data";
 import NotFoundError from "../errors/not-found-error";
 
-function resolveEntryLinks(field, payload) {
-    if (field.hasOwnProperty('sys') && field.sys.linkType === "Entry") {
+function resolveEntryLinks(fieldValue, fieldName, payload, context) {
+    if (fieldValue.hasOwnProperty('sys') && fieldValue.sys.linkType === "Entry") {
         let matchedEntry = _.find(payload.includes["Entry"], function (entry) {
-            return entry.sys.id === field.sys.id;
+            return entry.sys.id === fieldValue.sys.id;
         });
 
-        return matchedEntry.fields;
+        if(matchedEntry) {
+            context[fieldName] = matchedEntry.fields;
+        }
     }
 }
 
@@ -20,15 +22,12 @@ export default DS.JSONAPISerializer.extend({
 
         let fields = payload.items[0].fields;
 
-        _.mapObject(fields, function (field, fieldName) {
-            let resolvedFields = resolveEntryLinks(field, payload);
-            if (resolvedFields) {
-                fields[fieldName] = resolvedFields;
-            }
+        _.mapObject(fields, function (fieldValue, fieldName) {
+            resolveEntryLinks(fieldValue, fieldName, payload, fields);
 
-            if (field.hasOwnProperty('sys') && field.sys.linkType === "Asset") {
+            if (fieldValue.hasOwnProperty('sys') && fieldValue.sys.linkType === "Asset") {
                 let matchingAsset = _.find(payload.includes["Asset"], function (asset) {
-                    return asset.sys.id === field.sys.id;
+                    return asset.sys.id === fieldValue.sys.id;
                 });
                 fields[fieldName] = matchingAsset.fields.file.url;
             }
