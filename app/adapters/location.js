@@ -7,6 +7,6 @@ export default DS.JSONAPIAdapter.extend({
 
     urlForFindRecord: function(id) {
         let baseUrl = this.buildURL();
-        return `${baseUrl}/entries?select=fields&content_type=location&fields.slug=${id}&access_token=${ENV.APP.CONTENTFUL_ACCESS_TOKEN}`;
+        return `${baseUrl}/entries?select=fields&content_type=location&fields.slug=${id}&access_token=${ENV.APP.CONTENTFUL_ACCESS_TOKEN}&include=1`;
     }
 });

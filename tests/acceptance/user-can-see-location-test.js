@@ -17,6 +17,14 @@ test('visiting valid url displays location info', function (assert) {
     });
 });
 
+test('should display menus', function(assert) {
+    visit('/locations/sheffield');
+
+    andThen(function() {
+       assert.equal(find('.location__menu1-title').text(), "Christmas");
+    });
+});
+
 
 test('visiting invalid location returns an error', function (assert) {
     visit('/locations/invalid');

@@ -56,5 +56,5 @@ test('it resolves asset links', function (assert) {
             },
             "manchester", "RecordType");
 
-    assert.equal(normalizedResponse.data.attributes.heroImageUrl, "/link/to/cool/image.jpg");
+    assert.equal(normalizedResponse.data.attributes.image, "/link/to/cool/image.jpg");
 });

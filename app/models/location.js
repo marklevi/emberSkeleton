@@ -3,9 +3,10 @@ import DS from "ember-data";
 export default DS.Model.extend({
     title: DS.attr('string'),
     description: DS.attr('string'),
-    heroImageUrl: DS.attr('url'),
+    hero: DS.attr('url'),
     addressLocation: DS.attr(),
     addressText: DS.attr('string'),
     openingHours: DS.attr('string'),
-    deliverooUrl: DS.attr('string')
+    deliverooUrl: DS.attr('string'),
+    menu1: DS.attr()
 });

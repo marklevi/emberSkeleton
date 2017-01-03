@@ -7,7 +7,7 @@
 </div>
 <div class="row collapse">
     <div class="small-12 column">
-        <div class="location__hero" style="background-image: url('{{model.heroImageUrl}}')">
+        <div class="location__hero" style="background-image: url('{{model.hero}}')">
             <div class="location__hero-overlay">
                 <h1>{{model.title}}</h1>
             </div>
@@ -38,7 +38,10 @@
     </div>
 </div>
 <div class="row location__section location__section--menu-title">
-    <div class="large-10 medium-10 column"><div class="location__section--menu-title__text">Menus</div></div>
+    <div class="large-10 medium-10 column">
+        <div class="location__section--menu-title__text">Menus</div>
+        <div class="location__menu1-title">{{model.menu1.displayTitle}}</div>
+    </div>
     <div class="large-2 medium-2 column">
         <div class="deliveroo__link">
             <img class="deliveroo__link--img" src="/images/green-deliveroo.png">
