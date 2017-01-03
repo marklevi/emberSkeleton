@@ -67,7 +67,7 @@ test('resolves entry links up to 1 deep', function(assert) {
             {
                 items: [{
                     fields: {
-                        testEntry: {
+                        menu1: {
                             "sys": {
                                 "type": "Link",
                                 "linkType": "Entry",
@@ -91,5 +91,60 @@ test('resolves entry links up to 1 deep', function(assert) {
             },
             "manchester", "RecordType");
 
-    assert.deepEqual(normalizedResponse.data.attributes.testEntry, {"title": "Test Entry"});
+    assert.deepEqual(normalizedResponse.data.attributes.menu1, {"title": "Test Entry"});
 });
+
+test('resolves entry links up to 2 layers deep', function(assert) {
+    let record = this.subject();
+    let normalizedResponse = record.store.serializerFor('location')
+        .normalizeFindRecordResponse({},
+            {modelName: "location"},
+            {
+                items: [{
+                    fields: {
+                        menu1: {
+                            "sys": {
+                                "type": "Link",
+                                "linkType": "Entry",
+                                "id": "id-of-entry"
+                            }
+                        }
+                    }
+                }],
+                includes: {
+                    "Entry": [
+                        {
+                            "sys": {
+                                "id": "id-of-entry"
+                            },
+                            "fields": {
+                                "title": "Brunch Menu",
+                                "submenus": [
+                                    {
+                                        "sys": {
+                                            "type": "Link",
+                                            "linkType": "Entry",
+                                            "id": "id-of-submenu"
+                                        }
+                                    }
+                                ]
+
+                            }
+                        },
+                        {
+                            "sys": {
+                                "id": "id-of-submenu"
+                            },
+                            "fields": {
+                                "title": "tapas offerings"
+                            }
+                        }
+                    ]
+                }
+            },
+            "manchester", "RecordType");
+
+    assert.deepEqual(normalizedResponse.data.attributes.menu1, {"title": "Brunch Menu", "submenus": [{"title": "tapas offerings"}]});
+});
+
+
