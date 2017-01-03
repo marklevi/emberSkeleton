@@ -58,3 +58,38 @@ test('it resolves asset links', function (assert) {
 
     assert.equal(normalizedResponse.data.attributes.image, "/link/to/cool/image.jpg");
 });
+
+test('resolves entry links up to 1 deep', function(assert) {
+    let record = this.subject();
+    let normalizedResponse = record.store.serializerFor('location')
+        .normalizeFindRecordResponse({},
+            {modelName: "location"},
+            {
+                items: [{
+                    fields: {
+                        testEntry: {
+                            "sys": {
+                                "type": "Link",
+                                "linkType": "Entry",
+                                "id": "id-of-entry"
+                            }
+                        }
+                    }
+                }],
+                includes: {
+                    "Entry": [
+                        {
+                            "sys": {
+                                "id": "id-of-entry"
+                            },
+                            "fields": {
+                                "title": "Test Entry"
+                            }
+                        }
+                    ]
+                }
+            },
+            "manchester", "RecordType");
+
+    assert.deepEqual(normalizedResponse.data.attributes.testEntry, {"title": "Test Entry"});
+});
