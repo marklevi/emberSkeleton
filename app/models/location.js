@@ -8,5 +8,6 @@ export default DS.Model.extend({
     addressText: DS.attr('string'),
     openingHours: DS.attr('string'),
     deliverooUrl: DS.attr('string'),
-    menu1: DS.attr()
+    menu1: DS.attr(),
+    menu1priceband: DS.attr()
 });

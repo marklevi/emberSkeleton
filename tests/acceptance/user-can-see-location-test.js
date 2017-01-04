@@ -26,6 +26,8 @@ test('should display menus', function (assert) {
         assert.equal($(find('.location__submenu-title')[1]).text(), "F r o m t h e flames ");
         assert.equal(find('.menu-item').length, 4);
         assert.equal($(find('.menu-item')[0]).text(), "Blazing Bird");
+        assert.equal($(find('.price-item')[0]).text(), "Half 12.95 Whole 17.95");
+
     });
 });
 
