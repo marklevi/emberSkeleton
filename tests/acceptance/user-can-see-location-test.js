@@ -21,9 +21,9 @@ test('should display menus', function (assert) {
     visit('/locations/sheffield');
 
     andThen(function () {
-        assert.equal(find('.location__menu1-title').text(), "Christmas");
-        assert.equal($(find('.location__submenu1-title')[0]).text(), "tapas & starters");
-        assert.equal($(find('.location__submenu1-title')[1]).text(), "F r o m t h e flames ");
+        assert.equal(find('.location__menu-title').text(), "Christmas");
+        assert.equal($(find('.location__submenu-title')[0]).text(), "tapas & starters");
+        assert.equal($(find('.location__submenu-title')[1]).text(), "F r o m t h e flames ");
         assert.equal(find('.menu-item').length, 4);
         assert.equal($(find('.menu-item')[0]).text(), "Blazing Bird");
     });

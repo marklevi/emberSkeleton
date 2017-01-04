@@ -1,0 +1,11 @@
+<div class="menu">
+    <div class="location__menu-title">{{model.displayTitle}}</div>
+    {{#each model.submenus as |submenu|}}
+        <div class="location__submenu-title">{{submenu.displayTitle}}</div>
+        <ul>
+            {{#each submenu.menuItems as |menuItem|}}
+                <li class="menu-item">{{menuItem.displayTitle}}</li>
+            {{/each}}
+        </ul>
+    {{/each}}
+</div>
