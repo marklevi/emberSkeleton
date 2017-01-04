@@ -41,6 +41,14 @@
     <div class="large-10 medium-10 column">
         <div class="location__section--menu-title__text">Menus</div>
         <div class="location__menu1-title">{{model.menu1.displayTitle}}</div>
+        {{#each model.menu1.submenus as |submenu|}}
+            <div class="location__submenu1-title">{{submenu.displayTitle}}</div>
+                <ul>
+                    {{#each submenu.menuItems as |menuItem|}}
+                        <li class="menu-item">{{menuItem.displayTitle}}</li>
+                    {{/each}}
+                </ul>
+        {{/each}}
     </div>
     <div class="large-2 medium-2 column">
         <div class="deliveroo__link">

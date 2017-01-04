@@ -62,7 +62,6 @@ export default DS.JSONAPISerializer.extend({
                 attributes: fields
             }
         };
-
         return payload;
     },
 });
