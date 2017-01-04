@@ -6,7 +6,7 @@
             {{#each submenu.menuItems as |menuItem|}}
                 <li>
                   <span class="menu-item">{{menuItem.displayTitle}}</span>
-                  <span class="price-item">{{priceResolver menuItem model.menu1priceband}}</span>
+                  <span class="price-item">{{price-resolver menuItem model.menu1priceband}}</span>
                 </li>
             {{/each}}
         </ul>
