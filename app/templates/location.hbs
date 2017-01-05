@@ -41,7 +41,7 @@
     <div class="large-10 medium-10 column">
         <div class="location__section--menu-title__text">Menus</div>
         {{#each model.menusWithPriceBands as |menuWithPriceBand|}}
-              {{render "menus/menu" menuWithPriceBand}}
+              {{restaurant-menu menu-with-price-band=menuWithPriceBand}}
         {{/each}}
     </div>
     <div class="large-2 medium-2 column">

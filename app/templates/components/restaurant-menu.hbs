@@ -1,0 +1,14 @@
+<div class="menu">
+    <div class="location__menu-title">{{menu-with-price-band.menu.displayTitle}}</div>
+    {{#each menu-with-price-band.menu.submenus as |submenu|}}
+        <div class="location__submenu-title">{{submenu.displayTitle}}</div>
+        <ul>
+            {{#each submenu.menuItems as |menuItem|}}
+                <li>
+                    <span class="menu-item">{{menuItem.displayTitle}}</span>
+                    <span class="price-item">{{price-resolver menuItem menu-with-price-band.priceBand}}</span>
+                </li>
+            {{/each}}
+        </ul>
+    {{/each}}
+</div>
