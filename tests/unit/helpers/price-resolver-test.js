@@ -5,6 +5,6 @@ import { module, test } from 'qunit';
 module('Unit | Helper | price resolver');
 
 test('it works', function(assert) {
-  let result = priceResolver([{pricebandL: "1.05"}, {title: "L"}]);
+  let result = priceResolver([{pricebandL: "1.05"}, "L"]);
   assert.equal(result, "1.05");
 });

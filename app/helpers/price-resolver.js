@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export function priceResolver(params) {
   let menuItem = params[0];
-  let priceBand = params[1].title;
+  let priceBand = params[1];
 
   let priceMapper = {"L": "pricebandL", "ROW": "pricebandRow", "Centerparcs": "pricebandCenterparcs"};
 

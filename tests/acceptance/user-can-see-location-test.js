@@ -21,12 +21,12 @@ test('should display menus', function (assert) {
     visit('/locations/sheffield');
 
     andThen(function () {
-        assert.equal(find('.location__menu-title').text(), "Christmas");
-        assert.equal($(find('.location__submenu-title')[0]).text(), "tapas & starters");
-        assert.equal($(find('.location__submenu-title')[1]).text(), "F r o m t h e flames ");
-        assert.equal(find('.menu-item').length, 4);
-        assert.equal($(find('.menu-item')[0]).text(), "Blazing Bird");
-        assert.equal($(find('.price-item')[0]).text(), "Half 12.95 Whole 17.95");
+        assert.equal(find('.location__menu-title').text(), "Dinner MenuBrunch Menu");
+        assert.equal($(find('.location__submenu-title')[0]).text(), "F r o m t h e flames ");
+        assert.equal($(find('.location__submenu-title')[1]).text(), "tapas & starters");
+        assert.equal(find('.menu-item').length, 6);
+        assert.equal($(find('.menu-item')[1]).text(), "Picanha");
+        assert.equal($(find('.price-item')[1]).text(), "16.74");
 
     });
 });
