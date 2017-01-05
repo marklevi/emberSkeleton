@@ -40,7 +40,9 @@
 <div class="row location__section location__section--menu-title">
     <div class="large-10 medium-10 column">
         <div class="location__section--menu-title__text">Menus</div>
-        {{render "menus/menu" model}}
+        {{#each model.menusWithPriceBands as |menuWithPriceBand|}}
+              {{render "menus/menu" menuWithPriceBand}}
+        {{/each}}
     </div>
     <div class="large-2 medium-2 column">
         <div class="deliveroo__link">

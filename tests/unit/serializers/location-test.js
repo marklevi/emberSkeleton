@@ -59,7 +59,7 @@ test('it resolves asset links', function (assert) {
     assert.equal(normalizedResponse.data.attributes.image, "/link/to/cool/image.jpg");
 });
 
-test('resolves entry links up to 1 deep', function(assert) {
+test('resolves entry links', function(assert) {
     let record = this.subject();
     let normalizedResponse = record.store.serializerFor('location')
         .normalizeFindRecordResponse({},
@@ -67,55 +67,37 @@ test('resolves entry links up to 1 deep', function(assert) {
             {
                 items: [{
                     fields: {
-                        menu1: {
-                            "sys": {
-                                "type": "Link",
-                                "linkType": "Entry",
-                                "id": "id-of-entry"
-                            }
+                      menusWithPriceBands: [
+                        {
+                          "sys": {
+                            "type": "Link",
+                            "linkType": "Entry",
+                            "id": "link-for-menu-priceband"
+                          }
                         }
+                      ]
                     }
                 }],
                 includes: {
                     "Entry": [
                         {
                             "sys": {
-                                "id": "id-of-entry"
+                                "id": "link-for-menu-priceband"
                             },
                             "fields": {
-                                "title": "Test Entry"
+                                "menu": {
+                                  "sys": {
+                                    "type": "Link",
+                                    "linkType": "Entry",
+                                    "id": "link-for-menu-1"
+                                  }
+                                },
+                                "priceband": "ROW"
                             }
-                        }
-                    ]
-                }
-            },
-            "manchester", "RecordType");
-
-    assert.deepEqual(normalizedResponse.data.attributes.menu1, {"title": "Test Entry"});
-});
-
-test('resolves entry links up to 2 layers deep', function(assert) {
-    let record = this.subject();
-    let normalizedResponse = record.store.serializerFor('location')
-        .normalizeFindRecordResponse({},
-            {modelName: "location"},
-            {
-                items: [{
-                    fields: {
-                        menu1: {
-                            "sys": {
-                                "type": "Link",
-                                "linkType": "Entry",
-                                "id": "id-of-entry"
-                            }
-                        }
-                    }
-                }],
-                includes: {
-                    "Entry": [
+                        },
                         {
                             "sys": {
-                                "id": "id-of-entry"
+                                "id": "link-for-menu-1"
                             },
                             "fields": {
                                 "title": "Brunch Menu",
@@ -128,7 +110,6 @@ test('resolves entry links up to 2 layers deep', function(assert) {
                                         }
                                     }
                                 ]
-
                             }
                         },
                         {
@@ -144,7 +125,5 @@ test('resolves entry links up to 2 layers deep', function(assert) {
             },
             "manchester", "RecordType");
 
-    assert.deepEqual(normalizedResponse.data.attributes.menu1, {"title": "Brunch Menu", "submenus": [{"title": "tapas offerings"}]});
+    assert.deepEqual(normalizedResponse.data.attributes.menusWithPriceBands[0], {"priceband": "ROW", "menu": {"title": "Brunch Menu", "submenus": [{"title": "tapas offerings"}]}});
 });
-
-
