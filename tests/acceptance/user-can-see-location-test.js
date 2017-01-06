@@ -27,10 +27,8 @@ test('should display menus', function (assert) {
         assert.equal(find('.menu-item').length, 6);
         assert.equal($(find('.menu-item')[1]).text(), "Picanha");
         assert.equal($(find('.price-item')[1]).text(), "16.74");
-
     });
 });
-
 
 test('visiting invalid location returns an error', function (assert) {
     visit('/locations/invalid');
