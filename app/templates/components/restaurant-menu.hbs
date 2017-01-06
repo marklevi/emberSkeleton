@@ -4,10 +4,21 @@
         <div class="location__submenu-title">{{submenu.displayTitle}}</div>
         <ul>
             {{#each submenu.menuItems as |menuItem|}}
-                <li>
-                    <span class="menu-item">{{menuItem.displayTitle}}</span>
-                    <span class="price-item">{{price-resolver menuItem menu-with-price-band.priceBand}}</span>
-                </li>
+              <li>
+                <span class="menu-item">{{menuItem.displayTitle}}</span>
+                {{log menu-with-price-band}}
+                <span class="price-item">{{price-resolver menuItem menu-with-price-band.priceBand}}</span>
+                {{#if menuItem.menuItemVariation}}
+                    <ul>
+                    {{#each menuItem.menuItemVariation as |menuItemVariation|}}
+                      <li>
+                        <span class="menu-item-variation">{{menuItemVariation.displayTitle}}</span>
+                        <span class="menu-item-variation-price">{{price-resolver menuItemVariation menu-with-price-band.priceBand}}</span>
+                      </li>
+                    {{/each}}
+                    </ul>
+                {{/if}}
+              </li>
             {{/each}}
         </ul>
     {{/each}}
